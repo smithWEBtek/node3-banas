@@ -1,0 +1,24 @@
+{
+  "name": "banas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "tutorial node express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/smithWEBtek/node3-banas.git"
+  },
+  "author": "brad smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smithWEBtek/node3-banas/issues"
+  },
+  "homepage": "https://github.com/smithWEBtek/node3-banas#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  }
+}
