@@ -1,4 +1,10 @@
 img {
   height: 5rem;
-  background-image: radial-gradient(rgb(255, 0, 200), rgb(182, 224, 31))
+  background-image: radial-gradient(rgb(129, 115, 126), rgb(93, 116, 9))
+}
+
+button {
+  height: 1rem;
+  width: 3rem;
+  background-image: radial-gradient(yellow, gray)
 }

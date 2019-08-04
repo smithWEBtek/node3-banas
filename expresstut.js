@@ -15,7 +15,7 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function (eq, res) {
+app.get('/', function (req, res) {
   res.render('home');
 });
 
@@ -39,6 +39,23 @@ app.post('/intake-contact', function (req, res) {
 app.get('/upload', function (req, res) {
   app.render('upload-file');
 });
+
+app.use(function (req, res, next) {
+  console.log('app.use function was called')
+  console.log("Looking for URL : ", req.url);
+  next();
+});
+
+app.get('/junk', function (req, res, next) {
+  console.log("Tried to access the /junk URL");
+  throw new Error('/junk doesn\'t exist');
+});
+
+app.use(function (err, req, res, next) {
+  console.log('app.use ERROR was called')
+  console.log('Error : ', err.message);
+  next();
+})
 
 app.listen(app.get('port'), function () {
   console.log("Express started on http://localhost:" + app.get('port') + " press Ctrl-C to terminate");
