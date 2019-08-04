@@ -19,6 +19,23 @@ app.get('/', function (eq, res) {
   res.render('home');
 });
 
+app.get('/about', function (req, res) {
+  res.render('about');
+});
+
+app.get('/contact', function (req, res) {
+  res.render('contact');
+});
+
+app.get('/intake-contact', function (req, res) {
+  console.log("contact data: ", req)
+  // res.render('contact');
+});
+
+app.get('/upload', function (req, res) {
+  app.render('upload-file');
+});
+
 app.listen(app.get('port'), function () {
   console.log("Express started on http://localhost:" + app.get('port') + " press Ctrl-C to terminate");
 });
