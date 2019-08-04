@@ -1,4 +1,4 @@
 img {
   height: 5rem;
-  background-image: radial-gradient(blue, green)
+  background-image: radial-gradient(rgb(255, 0, 200), rgb(182, 224, 31))
 }
