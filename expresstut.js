@@ -116,6 +116,39 @@ app.get('/viewcount', function (req, res, next) {
   res.send('You viewed this page ' + req.session.views['/viewcount'] + ' times.')
 });
 
+var fs = require('fs');
+
+app.get('/readfile', function (req, res) {
+  fs.readFile('./public/randomfile.txt', function (err, data) {
+    if (err) {
+      return console.error(err);
+    }
+    res.send('the File : ' + data.toString());
+  });
+})
+
+app.get('/writefile', function (req, res) {
+  fs.writeFile('./public/randomfile2.txt', 'STARTING HERE: Innovate think tank systems thinking strengthening infrastructure milestones.', function (err) {
+    if (err) {
+      return console.error(err)
+    }
+  })
+  fs.readFile('./public/randomfile2.txt', function (err, data) {
+    if (err) {
+      return console.log('The Error : ' + err.toString());
+    }
+    res.send('The File : ' + data.toString())
+  })
+})
+
+app.get('/appendfile', function (req, res) {
+  fs.appendFile('./public/randomfile2.txt', '\n APPENDING HERE: ' + new Date(), function (err) {
+    if (err) {
+      return console.log('The Error : ' + err.toString());
+    }
+  })
+})
+
 // ERRORS and handling
 app.get('/error', function (req, res) {
   res.render('error');
