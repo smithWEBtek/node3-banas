@@ -3,7 +3,11 @@ img {
   background-image: radial-gradient(rgb(129, 115, 126), rgb(93, 116, 9))
 }
 
-button {
+.error {
+  background-image: radial-gradient(orange, yellow);
+}
+
+.bsnavbar__button {
   height: 1rem;
   width: 3rem;
   background-image: radial-gradient(yellow, gray)
