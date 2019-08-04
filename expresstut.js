@@ -16,6 +16,9 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
+  var date = new Date()
+  var time = date.getTime()
+  console.log('time: ', time)
   res.render('home');
 });
 
@@ -31,9 +34,8 @@ app.get('/contact', function (req, res) {
   res.render('contact');
 });
 
-app.post('/intake-contact', function (req, res) {
-  console.log("contact data: ", req)
-  // res.render('contact');
+app.post('/', function (req, res) {
+  // console.log("contact post request : ", req)
 });
 
 app.get('/upload', function (req, res) {
