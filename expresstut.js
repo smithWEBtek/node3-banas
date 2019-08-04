@@ -52,7 +52,50 @@ app.post('/process', function (req, res) {
   res.redirect(303, '/thankyou');
 });
 
+app.get('/file-upload', function (req, res) {
+  var now = new Date()
+  res.render('file-upload', {
+    year: now.getFullYear(),
+    month: now.getMonth()
+  })
+});
+
+app.post('/file-upload/:year/:month', function (req, res) {
+  var form = new formidable.IncomingForm();
+  form.parse(req, function (err, fields, file) {
+    if (err)
+      return res.redirect(303, '/error')
+    console.log('Received File')
+    // console.log('year: ', params["year"])
+    // console.log('month: ', params["month"])
+    console.log('file info: ', file)
+    res.redirect(303, '/thankyou')
+  });
+});
+
+app.get('/cookie', function (req, res) {
+  res.cookie('username', 'Brad Smith', {
+    expire: new Date() + 9999
+  }).send('username has the value of Brad Smith');
+});
+
+
+// cookies
+app.get('/listcookies', function (req, res) {
+  console.log("Cookies : ", req.cookies);
+  res.send('Look in the console for cookies');
+});
+
+app.get('/deletecookie', function (req, res) {
+  res.clearCookie('username');
+  res.send('username Cookie Deleted');
+});
+
 // ERRORS and handling
+app.get('/error', function (req, res) {
+  res.render('error');
+});
+
 app.use(function (req, res, next) {
   console.log("Looking for URL : ", req.url);
   next();
